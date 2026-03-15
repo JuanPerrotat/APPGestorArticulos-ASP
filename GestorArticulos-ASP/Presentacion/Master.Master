@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="Presentacion.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Gestión de artículos</title>
+    <link rel="icon" href="Images/Logo.png" type="image/png">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="Default.aspx">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ListaArticulos.aspx">Lista de artículos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contacto.aspx">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="MiPerfil.aspx">Mí Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Favoritos.aspx">Favoritos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FormularioArticulos.aspx">Formulario ABM</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ms-auto">
+                    <asp:Button CssClass="btn btn-outline-primary" ID="btnLoguearse" Text="Login" runat="server" />
+                    <asp:Button ID="btnRegistrarse" runat="server" CssClass="btn btn-outline-success" Text="Registrarse" />
+                    <asp:Image ID="imgAvatar"
+                        Style="height: 40px; width: 40px; border-radius: 50%;"
+                        runat="server" />
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <hr />
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
