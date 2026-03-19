@@ -20,7 +20,7 @@ namespace Negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=POKEDEX_DB; integrated security=true");
+            conexion = new SqlConnection(ConfigurationManager.AppSettings["CadenaConexion"]);
             comando = new SqlCommand();
         }
         public void setearConsulta(string consulta)

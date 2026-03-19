@@ -15,7 +15,9 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearProcedimiento("StoredListar");
+                //string consulta = "Select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.ImagenUrl, A.IdMarca, A.IdCategoria, C.Descripcion as Categoria, M.Descripcion as Marca, A.Precio from ARTICULOS A, CATEGORIAS C, MARCAS M where A.IdCategoria = C.Id and A.IdMarca = M.Id";
+                //datos.setearConsulta(consulta);
+                datos.setearProcedimiento("ListarStored");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -24,7 +26,11 @@ namespace Negocio
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
+<<<<<<< HEAD
                     aux.Precio = (double)datos.Lector["Precio"];
+=======
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+>>>>>>> d5c5cda55e391e595b539e12b8c3b29b32a39690
                     if (!(datos.Lector["ImagenUrl"] is DBNull))
                         aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
                     aux.Categoria = new Categoria();
