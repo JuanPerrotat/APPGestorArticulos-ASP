@@ -13,18 +13,20 @@ namespace Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
 
             if (!IsPostBack)
             {
-                dgvArticulos.DataSource = negocio.listar();
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                Session.Add("listaArticulos", negocio.listar());
+                dgvArticulos.DataSource = Session["listaArticulos"];
                 dgvArticulos.DataBind();
             }
-          
+
         }
         protected void dgvArticulos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             dgvArticulos.PageIndex = e.NewPageIndex;
+            dgvArticulos.DataSource = Session["listaArticulos"];
             dgvArticulos.DataBind();
         }
 

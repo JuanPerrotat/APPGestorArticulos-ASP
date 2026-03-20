@@ -21,10 +21,10 @@ namespace Presentacion
             {
                 repRepetidor.DataSource = ListaArticulos;
                 repRepetidor.DataBind();
-
+                
             }
 
-
+            
         }
     }
 }

@@ -26,11 +26,7 @@ namespace Negocio
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-<<<<<<< HEAD
-                    aux.Precio = (double)datos.Lector["Precio"];
-=======
                     aux.Precio = (decimal)datos.Lector["Precio"];
->>>>>>> d5c5cda55e391e595b539e12b8c3b29b32a39690
                     if (!(datos.Lector["ImagenUrl"] is DBNull))
                         aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
                     aux.Categoria = new Categoria();
