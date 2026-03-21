@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .hero-banner {
-            background: black;
-            color: white;
+            background:  #f8f9fa;
+            color: black;
             padding: 15px 8px;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);

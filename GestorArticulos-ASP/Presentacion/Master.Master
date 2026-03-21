@@ -41,8 +41,8 @@
                     </ul>
                 </div>
                 <div class="ms-auto">
-                    <asp:Button ID="btnRegistrarse" runat="server" CssClass="btn btn-light" Text="Registrarse" />
-                    <asp:Button CssClass="btn btn-secondary" ID="btnLoguearse" Text="Login" runat="server" />
+                    <asp:Button ID="btnRegistrarse" runat="server" CssClass="btn btn-outline-success" Text="Registrarse" />
+                    <asp:Button CssClass="btn btn-primary" ID="btnLoguearse" Text="Login" runat="server" />
                     <asp:Image ID="imgAvatar"
                         Style="height: 40px; width: 40px; border-radius: 50%;"
                         runat="server" />

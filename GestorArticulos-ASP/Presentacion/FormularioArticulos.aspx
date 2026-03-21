@@ -27,6 +27,12 @@
                 <asp:Label class="form-label" runat="server" Text="Marca"></asp:Label>
                 <asp:DropDownList ID="ddlMarca" CssClass="form-select" runat="server"></asp:DropDownList>
             </div>
+            <div class="mb-3">
+            <asp:Button Text="Alta artículo" CssClass="btn btn-outline-success" runat="server" />
+            <asp:Button Text="Eliminar artículo" CssClass="btn btn-outline-danger" runat="server" />
+            <a href="Default.aspx" class="btn btn-outline-primary">Cancelar</a>
+
+            </div>
         </div>
         <div class="col-6">
             <div class="mb-3">
@@ -48,5 +54,6 @@
                 </asp:UpdatePanel>
             </div>
         </div>
+        
     </div>
 </asp:Content>
