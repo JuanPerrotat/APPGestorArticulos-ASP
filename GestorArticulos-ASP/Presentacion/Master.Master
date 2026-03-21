@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Gestión de artículos</title>
+    <title>Stock Manager</title>
     <link rel="icon" href="Images/Logo.png" type="image/png">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -41,8 +41,8 @@
                     </ul>
                 </div>
                 <div class="ms-auto">
-                    <asp:Button CssClass="btn btn-outline-primary" ID="btnLoguearse" Text="Login" runat="server" />
-                    <asp:Button ID="btnRegistrarse" runat="server" CssClass="btn btn-outline-success" Text="Registrarse" />
+                    <asp:Button ID="btnRegistrarse" runat="server" CssClass="btn btn-light" Text="Registrarse" />
+                    <asp:Button CssClass="btn btn-secondary" ID="btnLoguearse" Text="Login" runat="server" />
                     <asp:Image ID="imgAvatar"
                         Style="height: 40px; width: 40px; border-radius: 50%;"
                         runat="server" />

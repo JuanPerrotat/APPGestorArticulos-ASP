@@ -2,6 +2,29 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
+        .hero-banner {
+            background: black;
+            color: white;
+            padding: 15px 8px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-content {
+            max-width: 500px;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
         .img-articulo {
             height: 200px;
             object-fit: contain;
@@ -48,9 +71,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container mt-4">
-        <h1>Artículos disponibles</h1>
-        <br />
+    <div class="container mt-6">
+        <%--<h1>Stock Manager</h1>
+        <h6>Tu aplicación de control de stock</h6>
+        <br />--%>
+        <div class="hero-banner mb-5">
+            <div class="hero-content text-center text-md-start">
+                <h1 class="hero-title">Stock Manager</h1>
+                <p class="hero-subtitle">Gestioná tu inventario de forma simple, rápida y profesional</p>
+
+            </div>
+        </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <asp:Repeater ID="repRepetidor" runat="server">
                 <ItemTemplate>
