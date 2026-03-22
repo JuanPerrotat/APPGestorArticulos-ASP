@@ -72,9 +72,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container mt-6">
-        <%--<h1>Stock Manager</h1>
-        <h6>Tu aplicación de control de stock</h6>
-        <br />--%>
         <div class="hero-banner mb-5">
             <div class="hero-content text-center text-md-start">
                 <h1 class="hero-title">Stock Manager</h1>

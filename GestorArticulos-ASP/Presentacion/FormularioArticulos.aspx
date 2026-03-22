@@ -12,26 +12,33 @@
                 <asp:TextBox CssClass="form-control" ID="txtId" runat="server" />
             </div>
             <div class="mb-3">
-                <asp:Label class="form-label" runat="server" Text="Nombre"></asp:Label>
-                <asp:TextBox CssClass="form-control" ID="txtCódigo" runat="server" />
+                <asp:Label class="form-label" runat="server" Text="Código"></asp:Label>
+                <asp:TextBox CssClass="form-control" ID="txtCodigo" runat="server" />
             </div>
             <div class="mb-3">
-                <asp:Label class="form-label" runat="server" Text="Código"></asp:Label>
+                <asp:Label class="form-label" runat="server" Text="Nombre"></asp:Label>
                 <asp:TextBox CssClass="form-control" ID="txtNombre" runat="server" />
             </div>
             <div class="mb-3">
                 <asp:Label class="form-label" runat="server" Text="Categoría"></asp:Label>
-                <asp:DropDownList ID="ddlCategoria" CssClass="form-select" runat="server"></asp:DropDownList>
+                <asp:DropDownList AppendDataBoundItems="true" ID="ddlCategoria" CssClass="form-select" runat="server"></asp:DropDownList>
             </div>
             <div class="mb-3">
                 <asp:Label class="form-label" runat="server" Text="Marca"></asp:Label>
                 <asp:DropDownList ID="ddlMarca" CssClass="form-select" runat="server"></asp:DropDownList>
             </div>
             <div class="mb-3">
-            <asp:Button Text="Alta artículo" CssClass="btn btn-outline-success" runat="server" />
-            <asp:Button Text="Eliminar artículo" CssClass="btn btn-outline-danger" runat="server" />
-            <a href="Default.aspx" class="btn btn-outline-primary">Cancelar</a>
-
+                <asp:Label class="form-label" runat="server" Text="Precio"></asp:Label>
+                <asp:TextBox CssClass="form-control" ID="txtPrecio" runat="server" />
+            </div>
+            <div class="mb-3">
+                <asp:Button Text="Aceptar" ID="btnAceptar" OnClick="btnAceptar_Click" CssClass="btn btn-outline-success" runat="server" />
+            </div>
+            <div class="mb-3">
+                <asp:Button Text="Eliminar" ID="btnEliminar" CssClass="btn btn-outline-danger" runat="server" />
+            </div>
+            <div class="mb-3">
+                <a href="Default.aspx" class="btn btn-outline-primary">Cancelar</a>
             </div>
         </div>
         <div class="col-6">
@@ -49,11 +56,11 @@
                         </div>
                         <asp:Image ImageUrl="https://grupoact.com.ar/wp-content/uploads/2020/04/placeholder.png"
                             onerror="this.onerror=null; this.src='/Images/ErrorUrl.png';"
-                            Width="60%" Id="imgArticulo" runat="server" />
+                            Width="60%" ID="imgArticulo" runat="server" />
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </div>
         </div>
-        
+
     </div>
 </asp:Content>
