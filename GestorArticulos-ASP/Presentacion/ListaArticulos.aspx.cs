@@ -20,14 +20,22 @@ namespace Presentacion
                 Session.Add("listaArticulos", negocio.listar());
                 dgvArticulos.DataSource = Session["listaArticulos"];
                 dgvArticulos.DataBind();
+                //cargarGrilla();
             }
 
+        }
+        private void cargarGrilla()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            dgvArticulos.DataSource = negocio.listar();
+            dgvArticulos.DataBind();
         }
         protected void dgvArticulos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             dgvArticulos.PageIndex = e.NewPageIndex;
             dgvArticulos.DataSource = Session["listaArticulos"];
             dgvArticulos.DataBind();
+            //cargarGrilla();
         }
 
         protected void dgvArticulos_SelectedIndexChanged(object sender, EventArgs e)

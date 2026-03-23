@@ -19,12 +19,12 @@ create procedure storedAltaArticulos
 @codigo varchar(50),
 @nombre varchar(50),
 @descripcion varchar(150), 
-@idCategoria int,
 @idMarca int,
+@idCategoria int,
 @imagenUrl varchar(1000),
 @precio money
 as
-insert into ARTICULOS values (@codigo, @nombre, @descripcion, @idCategoria, @idMarca, @imagenUrl, @precio)
+insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) values (@codigo, @nombre, @descripcion, @idMarca, @idCategoria, @imagenUrl, @precio)
 GO
 
 --Creacion del SP para modificar un artículo

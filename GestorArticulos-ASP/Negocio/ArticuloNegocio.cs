@@ -104,8 +104,8 @@ namespace Negocio
                 datos.setearParametro("@codigo", nuevo.Codigo);
                 datos.setearParametro("@nombre", nuevo.Nombre);
                 datos.setearParametro("@descripcion", nuevo.Descripcion);
-                datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
                 datos.setearParametro("@idMarca", nuevo.Marca.Id);
+                datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
                 datos.setearParametro("@imagenUrl", nuevo.ImagenUrl);
                 datos.setearParametro("@precio", nuevo.Precio);
 
@@ -146,6 +146,22 @@ namespace Negocio
             finally
             {
                 datos.cerrarConexion();
+            }
+        }
+        public void eliminar(int id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta("DELETE from ARTICULOS where id = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+                datos.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

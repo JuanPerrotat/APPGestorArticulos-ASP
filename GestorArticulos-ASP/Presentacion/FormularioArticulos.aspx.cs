@@ -6,15 +6,17 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Dominio;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Presentacion
 {
     public partial class FormularioArticulos : System.Web.UI.Page
     {
+        public bool confirmaEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             txtId.Enabled = false;
-
+            confirmaEliminacion = false;
             try
             {
                 if (!IsPostBack)
@@ -25,8 +27,6 @@ namespace Presentacion
                     ddlCategoria.DataValueField = "Id";
                     ddlCategoria.DataTextField = "Descripcion";
                     ddlCategoria.DataBind();
-                    ddlCategoria.Items.Insert(0, new ListItem("", ""));
-                    ddlCategoria.SelectedIndex = 0;
 
 
                     //Esto es para cuando venga para modificar que levante la categoría y marca predeterminada.
@@ -39,8 +39,8 @@ namespace Presentacion
                     ddlMarca.DataValueField = "Id";
                     ddlMarca.DataTextField = "Descripcion";
                     ddlMarca.DataBind();
-                    ddlMarca.Items.Insert(0, new ListItem("", ""));
-                    ddlMarca.SelectedIndex = 0;
+
+
 
                 }
 
@@ -62,6 +62,7 @@ namespace Presentacion
                     txtImagenUrl.Text = seleccionado.ImagenUrl;
 
                     txtImagenUrl_TextChanged(sender, e);
+
 
 
 
@@ -105,6 +106,9 @@ namespace Presentacion
                 else
                     negocio.agregarArticulo(nuevoArticulo);
 
+
+
+
                 Response.Redirect("ListaArticulos.aspx", false);
             }
             catch (Exception ex)
@@ -114,6 +118,22 @@ namespace Presentacion
             }
 
 
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            confirmaEliminacion = true;
+        }
+
+        protected void btnEliminarConfirmado_Click(object sender, EventArgs e)
+        {
+            if (chkConfirmaEliminacion.Checked)
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                negocio.eliminar(int.Parse(txtId.Text));
+                Response.Redirect("ListaArticulos.aspx", false);
+
+            }
         }
     }
 }
