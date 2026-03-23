@@ -5,7 +5,7 @@
     <h1>Lista de Artículos</h1>
     <hr />
     <asp:GridView ID="dgvArticulos" CssClass="table table-hover" AutoGenerateColumns="false"
-    AllowPaging="true" PageSize="3" OnPageIndexChanging="dgvArticulos_PageIndexChanging" 
+    AllowPaging="true" PageSize="8" OnPageIndexChanging="dgvArticulos_PageIndexChanging" 
      OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged"   DataKeyNames="Id" runat="server">
     <Columns>
         <asp:BoundField HeaderText="Código" DataField="Codigo" />

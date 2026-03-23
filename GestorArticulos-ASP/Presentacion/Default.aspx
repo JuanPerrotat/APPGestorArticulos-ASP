@@ -1,73 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Presentacion.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        .hero-banner {
-            background:  #f8f9fa;
-            color: black;
-            padding: 15px 8px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .hero-content {
-            max-width: 500px;
-        }
-
-        .hero-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .hero-subtitle {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .img-articulo {
-            height: 200px;
-            object-fit: contain;
-            background-color: #f8f9fa
-        }
-
-        .card-articulo {
-            border: none;
-            border-radius: 12px;
-            transition: transform 0.4s ease, box-shadow 0.2s ease;
-        }
-
-            .card-articulo:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 10px 35px rgba(0,0,0,0.15);
-            }
-
-        .card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .card-text {
-            font-size: 0.9rem;
-        }
-
-        .btn {
-            border-radius: 8px;
-        }
-
-        .precio {
-            color: #1a237e;
-        }
-
-        .btn-detalle {
-            font-size: 0.8rem;
-            padding: 10px 18px;
-            display: block;
-            margin: auto;
-            width: 160px;
-            border-radius: 6px;
-        }
-    </style>
+    <link href="Content/Estilos.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

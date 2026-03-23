@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Negocio;
-using Dominio;
-using System.Security.Cryptography.X509Certificates;
+using static System.Net.WebRequestMethods;
 
 namespace Presentacion
 {
@@ -29,9 +30,7 @@ namespace Presentacion
                     ddlCategoria.DataBind();
 
 
-                    //Esto es para cuando venga para modificar que levante la categoría y marca predeterminada.
-                    //string categoria = ddlCategoria.Text;
-                    //ddlCategoria.Items.FindByValue(categoria).Selected = true;
+                    
 
                     MarcaNegocio marcaNegocio = new MarcaNegocio();
                     List<Marca> listaMarca = marcaNegocio.listarMarca();
@@ -59,12 +58,13 @@ namespace Presentacion
                     txtPrecio.Text = seleccionado.Precio.ToString();
                     ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
                     ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
-                    txtImagenUrl.Text = seleccionado.ImagenUrl;
-
-                    txtImagenUrl_TextChanged(sender, e);
-
-
-
+                    if (!string.IsNullOrEmpty(seleccionado.ImagenUrl))
+                    {
+                        txtImagenUrl.Text = seleccionado.ImagenUrl;
+                        txtImagenUrl_TextChanged(sender, e);
+                    }
+                    else
+                        imgArticulo.ImageUrl = "https://grupoact.com.ar/wp-content/uploads/2020/04/placeholder.png";
 
                 }
             }

@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AltaUser.aspx" />
     <Content Include="Contacto.aspx" />
+    <Content Include="Content\Estilos.css" />
     <Content Include="Default.aspx" />
     <Content Include="Detalle.aspx" />
     <Content Include="Error.aspx" />

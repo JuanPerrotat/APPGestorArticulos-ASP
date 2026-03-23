@@ -7,7 +7,7 @@
             height: 1em;
             margin-top: 0.2em;
             box-shadow: none !important;
-            border: 1px solid #6c757d;
+            border: 1.2px solid #6c757d;
         }
     </style>
 </asp:Content>
@@ -50,14 +50,10 @@
 
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
-                    <!-- Bloque de acciones -->
-
                     <div class="mt-4">
                         <asp:Button Text="Eliminar" ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-outline-danger" runat="server" />
-
                         <%if (confirmaEliminacion)
-                            {   %>
-                        <!-- Caja de confirmación -->
+                            {   %>                       
                         <div class="border rounded p-3 mt-3 bg-light">
                             <div class="form-check mb-2">
                                 <asp:CheckBox CssClass="form-check-input" ID="chkConfirmaEliminacion" runat="server" />
@@ -70,7 +66,6 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-
 
         <div class="col-6">
             <div class="mb-3">
@@ -86,7 +81,7 @@
                                 OnTextChanged="txtImagenUrl_TextChanged" runat="server" />
                         </div>
                         <asp:Image ImageUrl="https://grupoact.com.ar/wp-content/uploads/2020/04/placeholder.png"
-                            onerror="this.onerror=null; this.src='/Images/ErrorUrl.png';"
+                            onerror="this.onerror=null; this.src='/Images/Fallback.png';"
                             Width="60%" ID="imgArticulo" runat="server" />
                     </ContentTemplate>
                 </asp:UpdatePanel>
