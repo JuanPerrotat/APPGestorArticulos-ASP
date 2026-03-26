@@ -11,35 +11,25 @@ namespace Presentacion
 {
     public partial class ListaArticulos : System.Web.UI.Page
     {
-        public bool FiltroAvanzado { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
-                FiltroAvanzado = false;
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 List<Articulo> lista = negocio.listar();
                 Session["listaArticulos"] = lista;
                 Session["listaFiltrada"] = lista;
                 dgvArticulos.DataSource = Session["listaFiltrada"];
                 dgvArticulos.DataBind();
-                //cargarGrilla();
             }
 
-        }
-        private void cargarGrilla()
-        {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            dgvArticulos.DataSource = negocio.listar();
-            dgvArticulos.DataBind();
         }
         protected void dgvArticulos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             dgvArticulos.PageIndex = e.NewPageIndex;
             dgvArticulos.DataSource = Session["listaFiltrada"];
             dgvArticulos.DataBind();
-            //cargarGrilla();
         }
 
         protected void dgvArticulos_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,8 +53,6 @@ namespace Presentacion
                 Session["listaFiltrada"] = listaFiltrada;
             }
 
-
-
             dgvArticulos.PageIndex = 0;
             dgvArticulos.DataSource = Session["listaFiltrada"];
             dgvArticulos.DataBind();
@@ -72,7 +60,6 @@ namespace Presentacion
 
         protected void chkFiltroAvanzado_CheckedChanged(object sender, EventArgs e)
         {
-            FiltroAvanzado = chkFiltroAvanzado.Checked;
             txtFiltro.Enabled = !chkFiltroAvanzado.Checked;
         }
 
@@ -119,7 +106,20 @@ namespace Presentacion
 
         protected void btnBuscarFiltro_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                dgvArticulos.DataSource = negocio.filtrarAvanzado(ddlCampo.SelectedItem.ToString(),
+                                                                ddlCriterio.SelectedItem.ToString(),
+                                                                txtFiltroAvanzado.Text);
+                dgvArticulos.DataBind();
 
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
