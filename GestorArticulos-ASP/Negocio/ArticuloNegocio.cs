@@ -173,24 +173,30 @@ namespace Negocio
             {
                 string consulta = "Select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.ImagenUrl, A.IdMarca, A.IdCategoria, " +
                     "C.Descripcion as Categoria, M.Descripcion as Marca, A.Precio from ARTICULOS A, CATEGORIAS C, MARCAS M" +
-                    " where A.IdCategoria = C.Id and A.IdMarca = M.Id ";
+                    " where A.IdCategoria = C.Id and A.IdMarca = M.Id and ";
 
                 if (string.IsNullOrEmpty(filtro))
                 {
                     if(campo == "Categoría")
                     {
-                        consulta += "and C.Descripcion = " + "'"+ criterio + "'";
+                        consulta += "C.Descripcion = " + "'"+ criterio + "'";
                     }
                     else
                     {
-                        consulta += "and M.Descripcion = " + "'" + criterio + "'";
+                        consulta += "M.Descripcion = " + "'" + criterio + "'";
                     }
                 }
                 else
                 {
-
+                    if (criterio == "Comienza con")
+                        consulta += "A.Codigo like '" + filtro + "%' ";
+                    else if (criterio == "Termina con")
+                        consulta += "A.Codigo like '%" + filtro + "'";
+                    else
+                        consulta += "A.Codigo like '%" + filtro + "%'";
                 }
-                    datos.setearConsulta(consulta);
+                    
+                datos.setearConsulta(consulta);
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {

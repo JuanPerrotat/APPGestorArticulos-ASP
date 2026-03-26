@@ -73,9 +73,9 @@ namespace Presentacion
             ddlCriterio.Items.Clear();
             if (ddlCampo.SelectedItem.ToString() == "Código")
             {
-                ddlCriterio.Items.Add("Contiene");
                 ddlCriterio.Items.Add("Comienza con");
                 ddlCriterio.Items.Add("Termina con");
+                ddlCriterio.Items.Add("Contiene");
                 txtFiltroAvanzado.Enabled = true;
             }
             else if (ddlCampo.SelectedItem.ToString() == "Categoría")
