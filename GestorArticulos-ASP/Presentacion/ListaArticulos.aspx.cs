@@ -22,6 +22,7 @@ namespace Presentacion
                 Session["listaFiltrada"] = lista;
                 dgvArticulos.DataSource = Session["listaFiltrada"];
                 dgvArticulos.DataBind();
+                cargarCriterios();
             }
 
         }
@@ -65,12 +66,32 @@ namespace Presentacion
 
         protected void btnReiniciarFiltro_Click(object sender, EventArgs e)
         {
+            chkFiltroAvanzado.Checked = false;
+            txtFiltro.Enabled = true;
+            txtFiltro.Text = string.Empty;
+
+            ddlCampo.SelectedIndex = 0;
+
+            cargarCriterios();
+
+            txtFiltroAvanzado.Text = string.Empty;
+
+            Session["listaFiltrada"] = Session["listaArticulos"];
+            dgvArticulos.PageIndex = 0;
+            dgvArticulos.DataSource = Session["listaArticulos"];
+            dgvArticulos.DataBind();
 
         }
 
         protected void ddlCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cargarCriterios();
+        }
+
+        private void cargarCriterios()
+        {
             ddlCriterio.Items.Clear();
+
             if (ddlCampo.SelectedItem.ToString() == "Código")
             {
                 ddlCriterio.Items.Add("Comienza con");
@@ -82,10 +103,12 @@ namespace Presentacion
             {
                 CategoriaNegocio negocio = new CategoriaNegocio();
                 List<Categoria> lista = negocio.listarCategoria();
+
                 foreach (Categoria categoria in lista)
                 {
                     ddlCriterio.Items.Add(new ListItem(categoria.Descripcion, categoria.Id.ToString()));
                 }
+                txtFiltroAvanzado.Text = string.Empty;
                 txtFiltroAvanzado.Enabled = false;
 
             }
@@ -93,14 +116,18 @@ namespace Presentacion
             {
                 MarcaNegocio negocio = new MarcaNegocio();
                 List<Marca> lista = negocio.listarMarca();
+
                 foreach (Marca marca in lista)
                 {
                     ddlCriterio.Items.Add(new ListItem(marca.Descripcion, marca.Id.ToString()));
                 }
 
+                txtFiltroAvanzado.Text = string.Empty;
                 txtFiltroAvanzado.Enabled = false;
             }
 
+            if (ddlCriterio.Items.Count > 0)
+                ddlCriterio.SelectedIndex = 0;
 
         }
 
@@ -109,9 +136,12 @@ namespace Presentacion
             try
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                dgvArticulos.DataSource = negocio.filtrarAvanzado(ddlCampo.SelectedItem.ToString(),
+                List<Articulo> listaFiltrada = negocio.filtrarAvanzado(ddlCampo.SelectedItem.ToString(),
                                                                 ddlCriterio.SelectedItem.ToString(),
                                                                 txtFiltroAvanzado.Text);
+                Session["listaFiltrada"] = listaFiltrada;
+                dgvArticulos.PageIndex = 0;
+                dgvArticulos.DataSource = listaFiltrada;
                 dgvArticulos.DataBind();
 
             }

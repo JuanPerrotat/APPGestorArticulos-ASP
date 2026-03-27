@@ -7,6 +7,46 @@
 h1, h2, h3, h4, h5 {
     font-family: 'Poppins', sans-serif;
 }
+.navbar-custom {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+/* NAVBAR SCROLL */
+.navbar-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* LINKS */
+.navbar-custom .nav-link {
+    color: #333;
+    font-weight: 500;
+}
+
+    .navbar-custom .nav-link:hover {
+        color: #0d6efd;
+    }
+
+/* LOGO */
+.navbar-brand {
+    font-weight: 600;
+    color: #111;
+}
+
+/* AVATAR */
+.avatar-img {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ESPACIO PARA NAVBAR FIJA */
+.pt-navbar {
+    padding-top: 90px;
+}
 
 .navbar-nav .nav-link {
     position: relative;
@@ -99,4 +139,7 @@ h1, h2, h3, h4, h5 {
     margin: auto;
     width: 160px;
     border-radius: 6px;
+}
+.card {
+    backdrop-filter: blur(8px);
 }

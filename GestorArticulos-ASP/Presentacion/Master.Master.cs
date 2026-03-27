@@ -13,5 +13,15 @@ namespace Presentacion
         {
             imgAvatar.ImageUrl = "https://w7.pngwing.com/pngs/416/62/png-transparent-anonymous-person-login-google-account-computer-icons-user-activity-miscellaneous-computer-monochrome-thumbnail.png";
         }
+
+        protected void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AltaUser.aspx", false);
+        }
+
+        protected void btnLoguearse_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx", false);
+        }
     }
 }

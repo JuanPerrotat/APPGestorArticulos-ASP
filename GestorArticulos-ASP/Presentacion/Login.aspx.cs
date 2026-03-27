@@ -13,5 +13,10 @@ namespace Presentacion
         {
 
         }
+
+        protected void btnCrearUsuario_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AltaUser.aspx", false);
+        }
     }
 }
