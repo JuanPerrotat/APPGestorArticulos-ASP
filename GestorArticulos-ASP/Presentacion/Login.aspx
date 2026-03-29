@@ -16,24 +16,26 @@
 
                 <div class="mb-3">
                     <label class="form-label">Mail</label>
-                    <asp:TextBox runat="server" ID="txtMail" CssClass="form-control form-control-lg" />
+                    <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control form-control-lg" />
                 </div>
 
                 <div class="mb-4">
                     <label class="form-label">Password</label>
-                    <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control form-control-lg" />
+                    <asp:TextBox runat="server" ID="txtPass" TextMode="Password" CssClass="form-control form-control-lg" />
                 </div>
 
                 <div class="d-grid gap-2">
                     <asp:Button
                         Text="Ingresar"
                         ID="btnIngresar"
+                        OnClick="btnIngresar_Click"
                         CssClass="btn btn-primary btn-lg rounded-3"
                         runat="server" />
 
                     <asp:Button
                         Text="Cancelar"
                         ID="btnCancelar"
+                        OnClick="btnCancelar_Click"
                         CssClass="btn btn-outline-secondary rounded-3"
                         runat="server" />
                 </div>

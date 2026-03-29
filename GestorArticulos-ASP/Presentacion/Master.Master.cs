@@ -23,5 +23,11 @@ namespace Presentacion
         {
             Response.Redirect("Login.aspx", false);
         }
+
+        protected void btnSalir_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Default.aspx", false);
+        }
     }
 }

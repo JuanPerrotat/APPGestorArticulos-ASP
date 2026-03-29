@@ -64,8 +64,13 @@ namespace Presentacion
                         txtImagenUrl_TextChanged(sender, e);
                     }
                     else
-                        imgArticulo.ImageUrl = "https://grupoact.com.ar/wp-content/uploads/2020/04/placeholder.png";
+                        imgArticulo.ImageUrl = "Images/Fallback.png";
 
+                }
+
+                if (string.IsNullOrEmpty(txtId.Text))
+                {
+                    btnEliminar.Enabled = false;
                 }
             }
             catch (Exception ex)
