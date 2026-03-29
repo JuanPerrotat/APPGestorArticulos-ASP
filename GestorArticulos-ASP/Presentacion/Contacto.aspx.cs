@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,17 @@ namespace Presentacion
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
+            EmailService emailService = new EmailService();
+            emailService.ArmarCorreo(txtMail.Text, txtAsunto.Text, txtMensaje.Text);
+            try
+            {
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

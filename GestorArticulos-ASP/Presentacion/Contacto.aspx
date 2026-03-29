@@ -15,7 +15,7 @@
                     <div class="text-center mb-4">
                         <h2 class="fw-bold">Contacto</h2>
                         <p class="text-muted mb-0">
-                            Enviame un mensaje y te respondo lo antes posible
+                            Envianos un mensaje y te responderemos lo antes posible
                    
                         </p>
                     </div>
