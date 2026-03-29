@@ -143,3 +143,43 @@ h1, h2, h3, h4, h5 {
 .card {
     backdrop-filter: blur(8px);
 }
+.contacto-card {
+    border-radius: 20px;
+    border: none;
+    background-color: #ffffff;
+}
+
+    /* Inputs */
+    .contacto-card .form-control {
+        border-radius: 10px;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .contacto-card .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+            border-color: #0d6efd;
+        }
+
+/* Input group (iconos) */
+.input-group-text {
+    border-radius: 10px 0 0 10px;
+    background-color: #f8f9fa;
+}
+
+/* Botón */
+.btn-enviar {
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+    .btn-enviar:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+/* Mobile tweaks */
+@media (max-width: 576px) {
+    .contacto-card {
+        padding: 1.5rem !important;
+    }
+}

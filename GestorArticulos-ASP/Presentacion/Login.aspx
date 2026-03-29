@@ -23,6 +23,12 @@
                     <label class="form-label">Password</label>
                     <asp:TextBox runat="server" ID="txtPass" TextMode="Password" CssClass="form-control form-control-lg" />
                 </div>
+                <asp:Label
+                    ID="lblError"
+                    runat="server"
+                    CssClass="alert alert-danger d-block text-center"
+                    Visible="false">
+                </asp:Label>
 
                 <div class="d-grid gap-2">
                     <asp:Button

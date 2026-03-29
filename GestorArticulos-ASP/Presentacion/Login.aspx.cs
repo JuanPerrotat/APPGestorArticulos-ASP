@@ -43,15 +43,17 @@ namespace Presentacion
                 }
                 else
                 {
-                    
-                    Session.Add("error", "Usuario o contraseña incorrectos");
-                    Response.Redirect("Error.aspx", false);
+                    lblError.Text = "Usuario o contraseña incorrectos";
+                    lblError.Visible = true;
+                    //Session.Add("error", "Usuario o contraseña incorrectos");
+                    //Response.Redirect("Error.aspx", false);
                 }
             }
             catch (Exception)
             {
 
-                throw;
+                lblError.Text = "Error al iniciar sesión. Verificá los datos";
+                lblError.Visible = true;
             }
         }
     }
