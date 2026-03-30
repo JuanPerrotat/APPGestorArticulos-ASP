@@ -1,7 +1,13 @@
-﻿body {
+﻿html, body {
+    height: 100%;
+}
+body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa, #e4e7eb);
+    background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5 {
@@ -81,6 +87,7 @@ h1, h2, h3, h4, h5 {
     padding: 15px 8px;
     border-radius: 12px;
     box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    margin-top: 20px;
 }
 
 .hero-content {
@@ -183,3 +190,22 @@ h1, h2, h3, h4, h5 {
         padding: 1.5rem !important;
     }
 }
+.card-login {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .card-login:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+/* Inputs más modernos */
+.input-modern {
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+    .input-modern:focus {
+        box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+        border-color: #86b7fe;
+    }

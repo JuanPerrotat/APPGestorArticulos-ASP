@@ -5,8 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container mt-6">
-        <div class="hero-banner mb-5">
+    
+        <div class="hero-banner mb-5 mt-3 mt-md-4">
             <div class="hero-content text-center text-md-start">
                 <h1 class="hero-title">Stocker</h1>
                 <p class="hero-subtitle">Gestioná tu inventario de forma simple, rápida y profesional</p>
@@ -31,5 +31,5 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
-    </div>
+   >
 </asp:Content>

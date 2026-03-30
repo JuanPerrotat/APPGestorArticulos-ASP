@@ -80,7 +80,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container pt-navbar">
+        <div class="container pt-navbar py-4 py-md-5">
             <div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
