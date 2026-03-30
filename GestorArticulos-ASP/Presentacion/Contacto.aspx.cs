@@ -21,12 +21,14 @@ namespace Presentacion
             emailService.ArmarCorreo(txtMail.Text, txtAsunto.Text, txtMensaje.Text);
             try
             {
-
+                emailService.EnviarMail();
+                pnlExito.Visible = true;
+                pnlFormulario.Visible = false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
             }
         }
     }
