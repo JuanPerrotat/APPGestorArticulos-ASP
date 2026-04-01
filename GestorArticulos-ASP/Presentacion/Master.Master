@@ -58,7 +58,7 @@
                         <%else
                             {  %>
                         <asp:Button ID="btnSalir"
-                            Text="Desloguearse"
+                            Text="Salir"
                             OnClick="btnSalir_Click"
                             CssClass="btn btn-sm btn-outline-danger"
                             runat="server" />   

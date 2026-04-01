@@ -44,5 +44,25 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+        public int altaUser(User usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("altaUser");
+                datos.setearParametro("@email", usuario.Email);
+                datos.setearParametro("@pass", usuario.Pass);
+                return datos.ejecutarAccionScalar();
+            }
+            catch (Exception ex)
+            {   
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            
+        }
     }
 }
