@@ -14,6 +14,10 @@
                     <h2 class="mb-4 text-center fw-semibold">Crea tú usuario</h2>
 
                     <div class="mb-3">
+                        <asp:Label Text="Nombre" ID="lblNombre" CssClass="form-label" runat="server" />
+                        <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server" />
+                    </div>
+                    <div class="mb-3">
                         <asp:Label Text="Email" CssClass="form-label" runat="server" />
                         <asp:TextBox ID="txtMail" TextMode="Email" CssClass="form-control" runat="server" />
                     </div>

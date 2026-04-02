@@ -18,7 +18,15 @@ namespace Presentacion
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
             EmailService emailService = new EmailService();
-            emailService.ArmarCorreo(txtMail.Text, txtAsunto.Text, txtMensaje.Text);
+            string ruta = Server.MapPath("~/Templates/ConsultaRecibida.html");
+            string template = emailService.CargarTemplate(ruta);
+            var datos = new Dictionary<string, string>
+            {
+                { "{{NOMBRE}}", txtNombre.Text }
+            };
+            string cuerpoMail = emailService.ReemplazarDatos(template, datos);
+
+            emailService.ArmarCorreo(txtMail.Text, "[No responder] Recibimos tú consulta", cuerpoMail);
             try
             {
                 emailService.EnviarMail();

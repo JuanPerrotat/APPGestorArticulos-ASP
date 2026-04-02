@@ -47,7 +47,8 @@ GO
 --Creacion del SP para alta de User
 create procedure altaUser
 @email varchar(50),
-@pass varchar(50)
+@pass varchar(50),
+@nombre VARCHAR(100)
 as
-insert into USERS (email, pass, admin) output inserted.Id values (@email, @pass, 0)
+insert into USERS (email, pass, nombre, admin) output inserted.Id values (@email, @pass, @nombre, 0)
 GO

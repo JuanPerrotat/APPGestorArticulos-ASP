@@ -6,10 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
-<<<<<<< HEAD
-=======
-using Negocio;
->>>>>>> 069d18eaa9b2af5a74824663ed5784bf4acc910d
+
 
 namespace Presentacion
 {
@@ -27,33 +24,28 @@ namespace Presentacion
 
         protected void btnRegistrarse_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            User nuevoUser = new User();
-            UserNegocio userNegocio = new UserNegocio();
-            EmailService emailService = new EmailService();
-            nuevoUser.Email = txtMail.Text;
-            nuevoUser.Pass = txtPassword.Text;
-            string ruta = Server.MapPath("~/Templates/AltaUsuario.html");
-            string template = emailService.CargarTemplate(ruta);
-            var datos = new Dictionary<string, string>
-            {
-                { "{{EMAIL}}", nuevoUser.Email}
-            };
-=======
             try
             {
                 User nuevoUser = new User();
                 UserNegocio negocioUser = new UserNegocio();
                 nuevoUser.Email = txtMail.Text;
                 nuevoUser.Pass = txtPassword.Text;
+                nuevoUser.Nombre = txtNombre.Text;
                 nuevoUser.Id = negocioUser.altaUser(nuevoUser);
                 Session.Add("usuario", nuevoUser);
 
                 EmailService emailService = new EmailService();
-                string cuerpoMail = "";
+                string ruta = Server.MapPath("~/Templates/AltaUsuario.html");
+                string template = emailService.CargarTemplate(ruta);
+                var datos = new Dictionary<string, string>
+                {
+                     { "{{NOMBRE}}", nuevoUser.Nombre }
+                };
+                string cuerpoMail = emailService.ReemplazarDatos(template, datos);
                 emailService.ArmarCorreo(nuevoUser.Email, "[No responder] Creación exitosa de usuario", cuerpoMail);
                 emailService.EnviarMail();
 
+                Session["mensajeExito"] = "¡Tu cuenta fue creada con éxito! Te hemos enviado un mail de verificación. Bienvenido a Stocker.";
                 Response.Redirect("Default.aspx", false);
             }
             catch (Exception ex)
@@ -61,7 +53,7 @@ namespace Presentacion
 
                 Session.Add("error", ex.ToString());
             }
->>>>>>> 069d18eaa9b2af5a74824663ed5784bf4acc910d
+
         }
     }
 }

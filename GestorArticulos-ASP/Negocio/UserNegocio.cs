@@ -52,6 +52,7 @@ namespace Negocio
                 datos.setearProcedimiento("altaUser");
                 datos.setearParametro("@email", usuario.Email);
                 datos.setearParametro("@pass", usuario.Pass);
+                datos.setearParametro("@nombre", usuario.Nombre);
                 return datos.ejecutarAccionScalar();
             }
             catch (Exception ex)

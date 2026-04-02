@@ -41,6 +41,18 @@
                                 <!-- Form -->
                                 <div class="row">
 
+                                    <!-- Nombre -->
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label class="form-label">Nombre</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-person"></i>
+                                            </span>
+                                            <asp:TextBox CssClass="form-control form-control-lg" ID="txtNombre" 
+                                                runat="server" placeholder="Tú nombre" />
+                                        </div>
+                                    </div>
+
                                     <!-- Email -->
                                     <div class="col-12 col-md-6 mb-3">
                                         <label class="form-label">Correo electrónico</label>
@@ -52,7 +64,6 @@
                                                 ID="txtMail"
                                                 runat="server"
                                                 TextMode="Email"
-                                                Required="true"
                                                 CssClass="form-control form-control-lg"
                                                 placeholder="ejemplo@mail.com" />
                                         </div>
