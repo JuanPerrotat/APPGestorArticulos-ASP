@@ -70,5 +70,20 @@ namespace Negocio
         {
             comando.Parameters.AddWithValue(nombre, valor);
         }
+        public int ejecutarAccionScalar()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                return int.Parse(comando.ExecuteScalar().ToString());
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

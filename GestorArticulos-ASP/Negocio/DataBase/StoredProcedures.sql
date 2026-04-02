@@ -44,3 +44,10 @@ IdMarca = @idMarca, ImagenUrl = @imagenUrl, Precio = @precio
 where Id = @id
 GO
 
+--Creacion del SP para alta de User
+create procedure altaUser
+@email varchar(50),
+@pass varchar(50)
+as
+insert into USERS (email, pass, admin) output inserted.Id values (@email, @pass, 0)
+GO
