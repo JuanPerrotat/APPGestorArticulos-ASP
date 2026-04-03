@@ -38,22 +38,21 @@ namespace Presentacion
 
                 if (negocio.Login(user))
                 {
-                    Session.Add("usuario", user);
+                    Session.Add("usuarioLogueado", user);
                     Response.Redirect("MiPerfil.aspx", false);
                 }
                 else
                 {
                     lblError.Text = "Usuario o contraseña incorrectos";
                     lblError.Visible = true;
-                    //Session.Add("error", "Usuario o contraseña incorrectos");
-                    //Response.Redirect("Error.aspx", false);
+                   
                 }
             }
             catch (Exception)
             {
-
-                lblError.Text = "Error al iniciar sesión. Verificá los datos";
-                lblError.Visible = true;
+                Session.Add("error", "Hubo un error. Verificalo con el equipo de Stocker. " +
+                    "Podés ponerte en contacto utilizando la pestaña 'Contacto'.");
+                Response.Redirect("Error.aspx", false);
             }
         }
     }

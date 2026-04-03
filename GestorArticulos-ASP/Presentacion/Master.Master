@@ -27,24 +27,34 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="Default.aspx">Home</a>
                         </li>
+                        <%if (Negocio.Seguridad.esAdmin(Session["usuarioLogueado"]))
+                            { %>
+
                         <li class="nav-item">
                             <a class="nav-link" href="ListaArticulos.aspx">Lista de artículos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Contacto.aspx">Contacto</a>
+                            <a class="nav-link" href="FormularioArticulos.aspx">Formulario ABM</a>
                         </li>
+                        <% }
+
+                        %>
+                        <%if (Negocio.Seguridad.sesionActiva(Session["usuarioLogueado"]))
+                            {%>
+
                         <li class="nav-item">
                             <a class="nav-link" href="MiPerfil.aspx">Mí Perfil</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Favoritos.aspx">Favoritos</a>
                         </li>
+                        <%} %>
                         <li class="nav-item">
-                            <a class="nav-link" href="FormularioArticulos.aspx">Formulario ABM</a>
+                            <a class="nav-link" href="Contacto.aspx">Contacto</a>
                         </li>
                     </ul>
                     <div class="ms-lg-auto d-flex align-items-center gap-2 mt-3 mt-lg-0">
-                        <%if (Session["usuario"] == null)
+                        <%if (Session["usuarioLogueado"] == null)
                             { %>
                         <asp:Button ID="btnRegistrarse"
                             OnClick="btnRegistrarse_Click" runat="server"
@@ -61,11 +71,11 @@
                             Text="Salir"
                             OnClick="btnSalir_Click"
                             CssClass="btn btn-sm btn-outline-danger"
-                            runat="server" />   
+                            runat="server" />
                         <asp:Label ID="lblUsuario"
                             Text="Usuario"
                             CssClass="text-dark m-auto me-2"
-                            runat="server"/>
+                            runat="server" />
 
                         <% } %>
 

@@ -75,6 +75,7 @@
     <Content Include="Error.aspx" />
     <Content Include="Favoritos.aspx" />
     <Content Include="FormularioArticulos.aspx" />
+    <Content Include="Images\avatar.png" />
     <Content Include="Images\ErrorUrl.png" />
     <Content Include="Images\Fallback.png" />
     <Content Include="Images\Logo.png" />

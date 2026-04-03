@@ -16,6 +16,12 @@ namespace Presentacion
         public bool confirmaEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.esAdmin(Session["usuarioLogueado"]))
+            {
+                Session.Add("error", "Se requiere permisos de administrador para acceder a ésta pantalla.");
+                Response.Redirect("Error.aspx", false);
+            }
+            
             txtId.Enabled = false;
             confirmaEliminacion = false;
             try
@@ -29,17 +35,12 @@ namespace Presentacion
                     ddlCategoria.DataTextField = "Descripcion";
                     ddlCategoria.DataBind();
 
-
-                    
-
                     MarcaNegocio marcaNegocio = new MarcaNegocio();
                     List<Marca> listaMarca = marcaNegocio.listarMarca();
                     ddlMarca.DataSource = listaMarca;
                     ddlMarca.DataValueField = "Id";
                     ddlMarca.DataTextField = "Descripcion";
                     ddlMarca.DataBind();
-
-
 
                 }
 

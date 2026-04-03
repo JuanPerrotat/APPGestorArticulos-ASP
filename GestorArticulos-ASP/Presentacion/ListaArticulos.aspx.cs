@@ -14,6 +14,12 @@ namespace Presentacion
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.esAdmin(Session["usuarioLogueado"]))
+            {
+                Session.Add("error", "Se requiere permisos de administrador para acceder a ésta pantalla.");
+                Response.Redirect("Error.aspx", false);
+            }
+            
             if (!IsPostBack)
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();

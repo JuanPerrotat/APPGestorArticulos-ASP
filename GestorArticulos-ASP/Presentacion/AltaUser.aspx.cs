@@ -32,7 +32,7 @@ namespace Presentacion
                 nuevoUser.Pass = txtPassword.Text;
                 nuevoUser.Nombre = txtNombre.Text;
                 nuevoUser.Id = negocioUser.altaUser(nuevoUser);
-                Session.Add("usuario", nuevoUser);
+                Session.Add("usuarioLogueado", nuevoUser);
 
                 EmailService emailService = new EmailService();
                 string ruta = Server.MapPath("~/Templates/AltaUsuario.html");
