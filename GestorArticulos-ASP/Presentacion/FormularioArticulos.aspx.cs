@@ -24,6 +24,7 @@ namespace Presentacion
             
             txtId.Enabled = false;
             confirmaEliminacion = false;
+            imgArticulo.ImageUrl = "Images/Fallback.png";
             try
             {
                 if (!IsPostBack)

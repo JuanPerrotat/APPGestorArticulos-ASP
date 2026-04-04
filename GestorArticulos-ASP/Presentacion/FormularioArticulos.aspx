@@ -71,7 +71,7 @@
                             <asp:TextBox ID="txtImagenUrl" class="form-control" AutoPostBack="true"
                                 OnTextChanged="txtImagenUrl_TextChanged" runat="server" />
                         </div>
-                        <asp:Image ImageUrl="https://grupoact.com.ar/wp-content/uploads/2020/04/placeholder.png"
+                        <asp:Image 
                             onerror="this.onerror=null; this.src='/Images/Fallback.png';"
                             Width="60%" ID="imgArticulo" runat="server" />
                     </ContentTemplate>

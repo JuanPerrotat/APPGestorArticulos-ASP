@@ -48,7 +48,7 @@ GO
 create procedure altaUser
 @email varchar(50),
 @pass varchar(50),
-@nombre VARCHAR(100)
+@nombre varchar(50)
 as
 insert into USERS (email, pass, nombre, admin) output inserted.Id values (@email, @pass, @nombre, 0)
 GO

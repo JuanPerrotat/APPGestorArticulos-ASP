@@ -14,21 +14,23 @@ namespace Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             imgAvatar.ImageUrl = "Images/avatar.png";
-            if (!(Page is AltaUser || Page is Contacto || Page is Default || Page is Detalle || Page is Error || Page is Login || Page is Login))
+            if (!(Page is AltaUser || Page is Contacto || Page is Default || Page is Detalle || Page is Error || Page is Login))
             {
                 if (!Seguridad.sesionActiva(Session["usuarioLogueado"]))
                     Response.Redirect("Login.aspx", false);
+            }
+
+            if (Seguridad.sesionActiva(Session["usuarioLogueado"]))
+            {
+                User usuario = (User)Session["usuarioLogueado"];
+                if (!string.IsNullOrEmpty(usuario.Nombre))
+                    lblUsuario.Text = usuario.Nombre ?? "NULL";
                 else
-                {
-                    User usuario = (User)Session["usuarioLogueado"];
-                    if (!string.IsNullOrEmpty(usuario.Nombre))
-                        lblUsuario.Text = usuario.Nombre;
-                    else
-                        lblUsuario.Text = "Usuario";
-                    //if (!string.IsNullOrEmpty(usuario.UrlImagenPerfil))
-                    //    imgAvatar.ImageUrl = "Images/" + usuario.UrlImagenPerfil;
-                }
+                    lblUsuario.Text = "Usuario";
+                //if (!string.IsNullOrEmpty(usuario.UrlImagenPerfil))
+                //    imgAvatar.ImageUrl = "Images/" + usuario.UrlImagenPerfil;
             }
         }
 

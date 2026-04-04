@@ -14,6 +14,22 @@ namespace Presentacion
         {
             if (!Seguridad.sesionActiva(Session["usuarioLogueado"]))
                 Response.Redirect("Login.aspx", false);
+            imgNuevoPerfil.ImageUrl = "Images/Fallback.png";
+
+            if (!IsPostBack)
+            {
+                if (Session["mensajeExito"] != null)
+                {
+                    lblMensajeExito.Text = Session["mensajeExito"].ToString();
+                    pnlAltaUser.Visible = true;
+                    Session.Remove("mensajeExito");
+                }
+            }
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

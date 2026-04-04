@@ -32,7 +32,12 @@ namespace Presentacion
                 nuevoUser.Pass = txtPassword.Text;
                 nuevoUser.Nombre = txtNombre.Text;
                 nuevoUser.Id = negocioUser.altaUser(nuevoUser);
-                Session.Add("usuarioLogueado", nuevoUser);
+
+                User userLogueado = new User();
+                userLogueado.Email = nuevoUser.Email;
+                userLogueado.Pass = nuevoUser.Pass;
+                negocioUser.Login(userLogueado);
+                Session["usuarioLogueado"] = userLogueado;
 
                 EmailService emailService = new EmailService();
                 string ruta = Server.MapPath("~/Templates/AltaUsuario.html");
@@ -46,7 +51,7 @@ namespace Presentacion
                 emailService.EnviarMail();
 
                 Session["mensajeExito"] = "¡Tu cuenta fue creada con éxito! Te hemos enviado un mail de verificación. Bienvenido a Stocker.";
-                Response.Redirect("Default.aspx", false);
+                Response.Redirect("MiPerfil.aspx", false);
             }
             catch (Exception ex)
             {

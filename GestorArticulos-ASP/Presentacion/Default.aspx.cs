@@ -19,17 +19,8 @@ namespace Presentacion
 
             if (!IsPostBack)
             {
-                if (Session["mensajeExito"] != null)
-                {
-                    lblMensajeExito.Text = Session["mensajeExito"].ToString();
-                    pnlAltaUser.Visible = true;
-
-                    Session.Remove("mensajeExito");
-                }
-                
                 repRepetidor.DataSource = ListaArticulos;
-                repRepetidor.DataBind();
-                
+                repRepetidor.DataBind();                
             }
 
             

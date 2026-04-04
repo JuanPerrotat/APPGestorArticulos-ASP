@@ -5,19 +5,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Panel ID="pnlAltaUser" runat="server" Visible="false" CssClass="alert alert-success text-center mt-3">
-        <i class="bi bi-check-circle-fill"></i>
-        <asp:Label ID="lblMensajeExito" CssClass="ms-2" runat="server" />
-    </asp:Panel>
-
-
     <div class="hero-banner mb-5 mt-3 mt-md-4">
         <div class="hero-content text-center text-md-start">
             <h1 class="hero-title">Stocker</h1>
             <p class="hero-subtitle">Gestioná tu inventario de forma simple, rápida y profesional</p>
         </div>
     </div>
-
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
         <asp:Repeater ID="repRepetidor" runat="server">
@@ -37,5 +30,4 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
-    >
 </asp:Content>
