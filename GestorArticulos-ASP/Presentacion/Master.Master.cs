@@ -25,12 +25,22 @@ namespace Presentacion
             if (Seguridad.sesionActiva(Session["usuarioLogueado"]))
             {
                 User usuario = (User)Session["usuarioLogueado"];
-                if (!string.IsNullOrEmpty(usuario.Nombre))
-                    lblUsuario.Text = usuario.Nombre ?? "NULL";
-                else
-                    lblUsuario.Text = "Usuario";
+
+                lblUsuario.Text = !string.IsNullOrEmpty(usuario.Nombre)
+                    ? usuario.Nombre
+                    : "Usuario";
+
+                imgAvatar.ImageUrl = !string.IsNullOrEmpty(usuario.UrlImagenPerfil)
+                    ? "~/Images/" + usuario.UrlImagenPerfil
+                    : "~/Images/avatar.png";
+
+
+
+
                 //if (!string.IsNullOrEmpty(usuario.UrlImagenPerfil))
-                //    imgAvatar.ImageUrl = "Images/" + usuario.UrlImagenPerfil;
+                //    imgAvatar.ImageUrl = "~/Images/" + ((User)Session["usuarioLogueado"]).UrlImagenPerfil;
+                //else
+                //    imgAvatar.ImageUrl = "Images/avatar.png";
             }
         }
 

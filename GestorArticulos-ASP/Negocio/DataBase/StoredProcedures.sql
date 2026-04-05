@@ -52,3 +52,14 @@ create procedure altaUser
 as
 insert into USERS (email, pass, nombre, admin) output inserted.Id values (@email, @pass, @nombre, 0)
 GO
+
+--Creación del SP para modificar datos de User (MíPerfil)
+create procedure actualizarUser
+@id int,
+@email varchar(100),
+@nombre varchar(50),
+@apellido varchar(50),
+@urlImagenPerfil varchar(500)
+as
+UPDATE USERS set email = @email, nombre = @nombre, apellido = @apellido, urlImagenPerfil = @urlImagenPerfil where id = @id
+GO

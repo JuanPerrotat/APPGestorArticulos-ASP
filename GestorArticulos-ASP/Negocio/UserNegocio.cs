@@ -65,5 +65,30 @@ namespace Negocio
             }
             
         }
+        public void actualizar(User usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("actualizarUser");
+
+                datos.setearParametro("@id", usuario.Id);
+                datos.setearParametro("@email", usuario.Email);
+                datos.setearParametro("@nombre", usuario.Nombre);
+                datos.setearParametro("@apellido", usuario.Apellido);
+                datos.setearParametro("@urlImagenPerfil", (object)usuario.UrlImagenPerfil ?? DBNull.Value);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

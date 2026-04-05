@@ -22,16 +22,12 @@
                 <asp:Label Text="Apellido" CssClass="form-label" runat="server" />
                 <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" />
             </div>
-            <div class="mb-3">
-                <asp:Label Text="Fecha de nacimiento" CssClass="form-label" runat="server" />
-                <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="form-control" TextMode="Date" />
-            </div>
         </div>
 
         <div class="col-md-4">
             <div class="mb-3">
                 <asp:Label Text="Imagen de perfil" CssClass="form-label" runat="server" />
-                <input type="file" id="txtImagen" runat="server" class="form-control" />
+                <asp:FileUpload id="txtImagen" onchange="previewImage(this)" runat="server" class="form-control" />
             </div>
             <div class="mb-3">
                 <asp:Image
@@ -43,7 +39,21 @@
     <div class="row">
         <div class="col-md-4">
             <asp:Button Text="Guardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click" ID="btnGuardar" runat="server" />
-            <asp:Button Text="Regresar" CssClass="btn btn-outline-danger" ID="btnRegresar" runat="server" />
+            <asp:Button Text="Regresar" CssClass="btn btn-outline-danger" OnClick="btnRegresar_Click" ID="btnRegresar" runat="server" />
         </div>
     </div>
+    <script>
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var img = document.getElementById('<%= imgNuevoPerfil.ClientID %>');
+                img.src = e.target.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 </asp:Content>
