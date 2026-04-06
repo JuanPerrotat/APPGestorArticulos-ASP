@@ -73,12 +73,24 @@ h1, h2, h3, h4, h5 {
     .navbar-nav .nav-link:hover::after {
         width: 100%;
     }
-.form-check-input input[type="checkbox"] {
-    width: 1em;
-    height: 1em;
-    margin-top: 0.2em;
-    box-shadow: none !important;
-    border: 1.2px solid #6c757d;
+
+.checkbox-fix input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.checkbox-fix {
+    display: flex;
+    align-items: flex-start;
+}
+.alert-warning {
+    border-radius: 10px;
+}
+
+.checkbox-fix input[type="checkbox"]:checked {
+    accent-color: #dc3545;
 }
 
 .hero-banner {
