@@ -72,7 +72,7 @@ namespace Presentacion
 
                 if (string.IsNullOrEmpty(txtId.Text))
                 {
-                    btnEliminar.Enabled = false;
+                    btnEliminar.Visible = false;
                 }
             }
             catch (Exception ex)

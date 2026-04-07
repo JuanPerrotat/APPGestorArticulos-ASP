@@ -43,8 +43,8 @@ h1, h2, h3, h4, h5 {
 
 /* AVATAR */
 .avatar-img {
-    height: 36px;
-    width: 36px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -222,3 +222,17 @@ h1, h2, h3, h4, h5 {
         box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
         border-color: #86b7fe;
     }
+.btn {
+    transition: all 0.2s ease;
+}
+
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+    .form-check-input {
+    margin-top: 0;
+}
+
+.form-check {
+    gap: 6px;
+}
