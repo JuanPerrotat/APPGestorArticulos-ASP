@@ -4,6 +4,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="px-2 px-md-0 py-4">
+        <% if (Session["mensaje"] != null)
+            { %>
+        <div id="alertaMensaje" class="alert alert-<%= Session["tipoMensaje"] %> text-center shadow-sm">
+            <%= Session["mensaje"].ToString() %>
+        </div>
+        <% 
+                Session.Remove("mensaje");
+                Session.Remove("tipoMensaje");
+            } %>
         <!-- HEADER -->
         <div class="mb-4 text-center text-md-start">
             <h1 class="fw-bold">Lista de Artículos</h1>
@@ -107,4 +116,23 @@
             <a href="FormularioArticulos.aspx" class="btn btn-success">+ Nuevo artículo</a>
         </div>
     </div>
+    <script>
+        window.onload = function () {
+            const alerta = document.getElementById("alertaMensaje");
+            if (alerta) {
+                alerta.style.opacity = 0;
+                alerta.style.transform = "translateY(-10px)";
+                alerta.style.transition = "all 0.5s ease";
+
+                setTimeout(() => {
+                    alerta.style.opacity = 1;
+                    alerta.style.transform = "translateY(0)";
+                }, 100);
+
+                setTimeout(() => {
+                    alerta.style.opacity = 0;
+                }, 2500);
+            }
+        }
+</script>
 </asp:Content>

@@ -1,6 +1,7 @@
 ﻿html, body {
     height: 100%;
 }
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -13,45 +14,96 @@ body {
 h1, h2, h3, h4, h5 {
     font-family: 'Poppins', sans-serif;
 }
+
 .navbar-custom {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    background: rgba(60, 60, 60, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     transition: all 0.3s ease;
 }
 
-/* NAVBAR SCROLL */
 .navbar-scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    background: rgba(20, 20, 20, 0.75);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-/* LINKS */
 .navbar-custom .nav-link {
-    color: #333;
+    color: rgba(255, 255, 255, 0.85);
     font-weight: 500;
 }
 
     .navbar-custom .nav-link:hover {
-        color: #0d6efd;
+        color: #ffffff;
     }
 
-/* LOGO */
 .navbar-brand {
     font-weight: 600;
     color: #111;
 }
 
-/* AVATAR */
+    .navbar-brand img {
+        height: 40px;
+        object-fit: contain;
+        transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+        .navbar-brand img:hover {
+            transform: scale(1.1) translateY(-2px);
+            filter: brightness(1.1);
+        }
+
 .avatar-img {
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* ESPACIO PARA NAVBAR FIJA */
+    .avatar-img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+.btn-navbar-outline {
+    border: 1px solid rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.85);
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+    .btn-navbar-outline:hover {
+        background-color: rgba(255,255,255,0.15);
+        color: #fff;
+        border-color: rgba(255,255,255,0.6);
+    }
+
+.btn-navbar-danger {
+    border: 1px solid rgba(255, 99, 99, 0.6);
+    color: #ff6b6b;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+    .btn-navbar-danger:hover {
+        background-color: rgba(255, 99, 99, 0.15);
+        color: #fff;
+        border-color: #ff6b6b;
+    }
+
+.navbar-user {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+}
+
+.navbar-custom .btn {
+    backdrop-filter: blur(4px);
+}
+
+
 .pt-navbar {
-    padding-top: 90px;
+    padding-top: 50px;
 }
 
 .navbar-nav .nav-link {
@@ -66,13 +118,26 @@ h1, h2, h3, h4, h5 {
         bottom: -4px;
         width: 0;
         height: 2px;
-        background-color: black;
+        background-color: #ffffff;
         transition: width 0.3s ease;
     }
 
     .navbar-nav .nav-link:hover::after {
         width: 100%;
     }
+
+@media (max-width: 991px) {
+
+    .navbar-nav .nav-link::after {
+        width: 0;
+        left: 0;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 20%;
+    }
+}
+
 
 .checkbox-fix input[type="checkbox"] {
     width: 16px;
@@ -85,6 +150,7 @@ h1, h2, h3, h4, h5 {
     display: flex;
     align-items: flex-start;
 }
+
 .alert-warning {
     border-radius: 10px;
 }
@@ -159,9 +225,11 @@ h1, h2, h3, h4, h5 {
     width: 160px;
     border-radius: 6px;
 }
+
 .card {
     backdrop-filter: blur(8px);
 }
+
 .contacto-card {
     border-radius: 20px;
     border: none;
@@ -203,6 +271,7 @@ h1, h2, h3, h4, h5 {
         padding: 1.5rem !important;
     }
 }
+
 .card-login {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -222,6 +291,7 @@ h1, h2, h3, h4, h5 {
         box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
         border-color: #86b7fe;
     }
+
 .btn {
     transition: all 0.2s ease;
 }
@@ -229,7 +299,8 @@ h1, h2, h3, h4, h5 {
     .btn:hover {
         transform: translateY(-1px);
     }
-    .form-check-input {
+
+.form-check-input {
     margin-top: 0;
 }
 

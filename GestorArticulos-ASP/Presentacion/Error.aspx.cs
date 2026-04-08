@@ -12,7 +12,12 @@ namespace Presentacion
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["error"] != null)
+            {
                 lblError.Text = Session["error"].ToString();
+                Session.Remove("error");
+            }
+            else
+                lblError.Text = "Ocurrió un error inesperado";
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)

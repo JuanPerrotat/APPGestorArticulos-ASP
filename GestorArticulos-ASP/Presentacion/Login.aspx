@@ -7,7 +7,7 @@
 
         <div class="col-12 col-sm-10 col-md-6 col-lg-4">
 
-            <div class="card shadow-lg border-0 rounded-4 p-4 fade-in">
+            <div class="card card-login shadow-lg border-0 rounded-4 p-4 fade-in">
 
                 <div class="text-center mb-4">
                     <h2 class="fw-bold">Login</h2>

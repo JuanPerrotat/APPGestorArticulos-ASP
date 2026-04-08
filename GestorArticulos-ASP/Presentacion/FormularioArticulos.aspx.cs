@@ -24,7 +24,8 @@ namespace Presentacion
             
             txtId.Enabled = false;
             confirmaEliminacion = false;
-            imgArticulo.ImageUrl = "Images/Fallback.png";
+            //imgArticulo.ImageUrl = "Images/Fallback.png";
+
             try
             {
                 if (!IsPostBack)
@@ -61,14 +62,14 @@ namespace Presentacion
                     ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
                     ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
                     if (!string.IsNullOrEmpty(seleccionado.ImagenUrl))
-                    {
                         txtImagenUrl.Text = seleccionado.ImagenUrl;
-                        txtImagenUrl_TextChanged(sender, e);
-                    }
-                    else
-                        imgArticulo.ImageUrl = "Images/Fallback.png";
 
                 }
+
+                if (!string.IsNullOrEmpty(txtImagenUrl.Text))
+                    imgArticulo.ImageUrl = txtImagenUrl.Text;
+                else
+                    imgArticulo.ImageUrl = "Images/Fallback.png";
 
                 if (string.IsNullOrEmpty(txtId.Text))
                 {
@@ -109,13 +110,20 @@ namespace Presentacion
                 {
                     nuevoArticulo.Id = int.Parse(txtId.Text);
                     negocio.modificar(nuevoArticulo);
+                    Session["mensaje"] = "El artículo fue modificado correctamente";
+                    Session["tipoMensaje"] = "warning";
                 }
                 else
+                {
                     negocio.agregarArticulo(nuevoArticulo);
+                    Session["mensaje"] = "El artículo ha sido dado de alta correctamente";
+                    Session["tipoMensaje"] = "success";
+
+                }
 
 
 
-
+                
                 Response.Redirect("ListaArticulos.aspx", false);
             }
             catch (Exception ex)
@@ -138,6 +146,8 @@ namespace Presentacion
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 negocio.eliminar(int.Parse(txtId.Text));
+                Session["mensaje"] = "El artículo ha sido eliminado correctamente";
+                Session["tipoMensaje"] = "danger";
                 Response.Redirect("ListaArticulos.aspx", false);
 
             }
