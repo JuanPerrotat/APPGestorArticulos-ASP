@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .navbar-custom {
-    background: rgba(60, 60, 60, 0.6);
+    background: #8b8787;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: all 0.3s ease;
@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5 {
 
 
 .pt-navbar {
-    padding-top: 50px;
+    padding-top: 80px;
 }
 
 .navbar-nav .nav-link {

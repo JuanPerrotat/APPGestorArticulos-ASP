@@ -39,7 +39,7 @@ namespace Presentacion
                 if (negocio.Login(user))
                 {
                     Session.Add("usuarioLogueado", user);
-                    Response.Redirect("MiPerfil.aspx", false);
+                    Response.Redirect("Default.aspx", false);
                 }
                 else
                 {

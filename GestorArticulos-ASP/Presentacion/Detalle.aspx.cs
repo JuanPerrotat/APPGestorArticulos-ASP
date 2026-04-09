@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
+using Negocio;
 
 namespace Presentacion
 {
@@ -11,7 +13,28 @@ namespace Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                string id = Request.QueryString["Id"];
 
+                if (!string.IsNullOrEmpty(id))
+                {
+                    int idArticulo = int.Parse(id);
+
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    Articulo seleccionado = negocio.listar().Find(x => x.Id == idArticulo);
+
+                    if (seleccionado != null)
+                    {
+                        lblNombre.Text = seleccionado.Nombre;
+                        lblDescripcion.Text = seleccionado.Descripcion;
+                        lblPrecio.Text = seleccionado.Precio.ToString("N2");
+                        lblCategoria.Text = seleccionado.Categoria.Descripcion;
+                        lblMarca.Text = seleccionado.Marca.Descripcion;
+                        imgArticulo.ImageUrl = seleccionado.ImagenUrl;
+                    }
+                }
+            }
         }
     }
 }
