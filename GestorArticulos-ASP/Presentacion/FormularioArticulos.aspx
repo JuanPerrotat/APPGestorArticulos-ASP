@@ -33,7 +33,7 @@
                     </div>
                     <div class="mb-3">
                         <asp:Label class="form-label" runat="server" Text="Precio"></asp:Label>
-                        <asp:TextBox CssClass="form-control shadow-sm" ID="txtPrecio" runat="server" />
+                        <asp:TextBox CssClass="form-control shadow-sm" ID="txtPrecio" data-type="number" runat="server" />
                     </div>
                     <div class="d-flex gap-2 mt-3">
                         <asp:Button Text="Aceptar" ID="btnAceptar" OnClick="btnAceptar_Click" CssClass="btn btn-outline-success" runat="server" />

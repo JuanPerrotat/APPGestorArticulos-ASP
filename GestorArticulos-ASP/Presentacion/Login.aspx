@@ -17,10 +17,17 @@
                     <div class="mb-3">
                         <label class="form-label">Mail</label>
                         <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control form-control-lg" />
-                        <asp:RequiredFieldValidator ErrorMessage="Completar campo" ControlToValidate="txtEmail" runat="server" />
-                        <asp:RegularExpressionValidator ErrorMessage="Escribir correctamente el mail"
-                            ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+
+                        <asp:RequiredFieldValidator
+                            ID="rfvEmail"
+                            ErrorMessage="Completar campo" CssClass="validator"
                             ControlToValidate="txtEmail" runat="server" />
+
+                        <asp:RegularExpressionValidator
+                            ID="revEmail"
+                            ErrorMessage="Formato inválido"
+                            ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                            ControlToValidate="txtEmail" CssClass="validator" runat="server" />
                     </div>
 
                     <div class="mb-4">
@@ -31,7 +38,7 @@
                                 <i id="iconEye" class="bi bi-eye"></i>
                             </button>
                         </div>
-                        <asp:RequiredFieldValidator ErrorMessage="Completar campo" ControlToValidate="txtPass" runat="server" />
+                        <asp:RequiredFieldValidator ErrorMessage="Completar campo" CssClass="validator" ControlToValidate="txtPass" runat="server" />
                     </div>
                     <asp:Label
                         ID="lblError"
@@ -52,6 +59,7 @@
                             Text="Cancelar"
                             ID="btnCancelar"
                             OnClick="btnCancelar_Click"
+                            CausesValidation="false"
                             CssClass="btn btn-outline-secondary rounded-3"
                             runat="server" />
                     </div>
@@ -65,6 +73,7 @@
                             ID="btnCrearUsuario"
                             CssClass="btn btn-outline-primary rounded-3 px-4"
                             OnClick="btnCrearUsuario_Click"
+                            CausesValidation="false"
                             runat="server" />
                     </div>
 

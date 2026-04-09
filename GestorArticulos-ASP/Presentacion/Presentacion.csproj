@@ -82,6 +82,7 @@
     <Content Include="ListaArticulos.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MiPerfil.aspx" />
+    <Content Include="Scripts\validaciones.js" />
     <Content Include="Templates\AltaUsuario.html" />
     <Content Include="Templates\ConsultaRecibida.html" />
     <Content Include="Web.config" />
