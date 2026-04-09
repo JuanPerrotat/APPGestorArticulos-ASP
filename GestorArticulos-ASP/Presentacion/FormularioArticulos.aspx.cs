@@ -58,7 +58,7 @@ namespace Presentacion
                     txtCodigo.Text = seleccionado.Codigo;
                     txtNombre.Text = seleccionado.Nombre;
                     txtDescripcion.Text = seleccionado.Descripcion;
-                    txtPrecio.Text = seleccionado.Precio.ToString();
+                    txtPrecio.Text = seleccionado.Precio.ToString("C0");
                     ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
                     ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
                     if (!string.IsNullOrEmpty(seleccionado.ImagenUrl))
@@ -78,7 +78,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Session.Add("error", ex);
+                Session.Add("error", ex.Message);
                 Response.Redirect("Error.aspx", false);
             }
         }
@@ -128,8 +128,8 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                Session.Add("error", ex);
-                throw;
+                Session.Add("error", ex.Message);
+                Response.Redirect("Error.aspx", false);
             }
 
 

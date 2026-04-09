@@ -19,21 +19,35 @@ namespace Presentacion
 
                 if (!string.IsNullOrEmpty(id))
                 {
-                    int idArticulo = int.Parse(id);
-
-                    ArticuloNegocio negocio = new ArticuloNegocio();
-                    Articulo seleccionado = negocio.listar().Find(x => x.Id == idArticulo);
-
-                    if (seleccionado != null)
+                    try
                     {
-                        lblNombre.Text = seleccionado.Nombre;
-                        lblDescripcion.Text = seleccionado.Descripcion;
-                        lblPrecio.Text = seleccionado.Precio.ToString("N2");
-                        lblCategoria.Text = seleccionado.Categoria.Descripcion;
-                        lblMarca.Text = seleccionado.Marca.Descripcion;
-                        imgArticulo.ImageUrl = seleccionado.ImagenUrl;
+                        int idArticulo = int.Parse(id);
+
+                        ArticuloNegocio negocio = new ArticuloNegocio();
+                        Articulo seleccionado = negocio.listar().Find(x => x.Id == idArticulo);
+
+                        if (seleccionado != null)
+                        {
+                            lblNombre.Text = seleccionado.Nombre;
+                            lblDescripcion.Text = seleccionado.Descripcion;
+                            lblPrecio.Text = seleccionado.Precio.ToString("C0");
+                            lblCategoria.Text = seleccionado.Categoria.Descripcion;
+                            lblMarca.Text = seleccionado.Marca.Descripcion;
+                            imgArticulo.ImageUrl = seleccionado.ImagenUrl;
+                        }
+
                     }
+                    catch (Exception ex)
+                    {
+
+                        Session.Add("error", ex.ToString());
+                        Response.Redirect("Error.aspx", false);
+                    }
+
                 }
+                else
+                    Response.Redirect("Default.aspx", false);
+                
             }
         }
     }

@@ -17,6 +17,10 @@
                     <div class="mb-3">
                         <label class="form-label">Mail</label>
                         <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control form-control-lg" />
+                        <asp:RequiredFieldValidator ErrorMessage="Completar campo" ControlToValidate="txtEmail" runat="server" />
+                        <asp:RegularExpressionValidator ErrorMessage="Escribir correctamente el mail"
+                            ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                            ControlToValidate="txtEmail" runat="server" />
                     </div>
 
                     <div class="mb-4">
@@ -27,6 +31,7 @@
                                 <i id="iconEye" class="bi bi-eye"></i>
                             </button>
                         </div>
+                        <asp:RequiredFieldValidator ErrorMessage="Completar campo" ControlToValidate="txtPass" runat="server" />
                     </div>
                     <asp:Label
                         ID="lblError"
@@ -83,5 +88,5 @@
                 icon.classList.add("bi-eye");
             }
         }
-</script>
+    </script>
 </asp:Content>

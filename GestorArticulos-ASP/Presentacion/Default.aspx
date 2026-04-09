@@ -22,7 +22,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title"><%#Eval("Nombre") %></h5>
                             <p class="card-text text-muted flex-grow-1"><%#Eval("Descripcion") %></p>
-                            <p class="fw-bold precio mb-2">$ <%#Eval("Precio", "{0:N2}") %></p>
+                            <p class="fw-bold precio mb-2"><%#Eval("Precio", "{0:C0}") %></p>
                             <a href="Detalle.aspx?Id=<%#Eval("Id") %>" class="btn btn-detalle btn-dark mx-auto mt-auto d-block">Ver detalle</a>
                         </div>
                     </div>

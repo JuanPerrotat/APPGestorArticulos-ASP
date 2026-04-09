@@ -23,10 +23,10 @@
                         <asp:Label ID="lblDescripcion" runat="server" />
                     </p>
 
-                    <p class="fs-4 fw-bold text-success">
-                        $
-                        <asp:Label ID="lblPrecio" runat="server" />
-                    </p>
+                 
+                       
+                        <asp:Label CssClass="fs-4 fw-bold text-success" ID="lblPrecio" runat="server" />
+                    
 
                     <hr />
 

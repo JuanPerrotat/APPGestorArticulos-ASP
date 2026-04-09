@@ -1,6 +1,7 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +43,7 @@ namespace Negocio
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("No se pudo acceder a la base de datos", ex);
             }
             finally
             {
