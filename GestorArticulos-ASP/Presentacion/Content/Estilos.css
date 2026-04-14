@@ -235,8 +235,6 @@ h1, h2, h3, h4, h5 {
     border: none;
     background-color: #ffffff;
 }
-
-    /* Inputs */
     .contacto-card .form-control {
         border-radius: 10px;
         transition: all 0.2s ease-in-out;
@@ -247,14 +245,10 @@ h1, h2, h3, h4, h5 {
             border-color: #0d6efd;
         }
 
-/* Input group (iconos) */
 .input-group-text {
     border-radius: 10px 0 0 10px;
     background-color: #f8f9fa;
 }
-
-
-/* Botón */
 .btn-enviar {
     border-radius: 12px;
     transition: all 0.2s ease;
@@ -265,7 +259,6 @@ h1, h2, h3, h4, h5 {
         box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-/* Mobile tweaks */
 @media (max-width: 576px) {
     .contacto-card {
         padding: 1.5rem !important;
@@ -280,8 +273,6 @@ h1, h2, h3, h4, h5 {
         transform: translateY(-3px);
         box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     }
-
-/* Inputs más modernos */
 .input-modern {
     border-radius: 10px;
     padding: 10px 12px;

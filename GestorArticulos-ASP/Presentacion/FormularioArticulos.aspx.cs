@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using static System.Net.WebRequestMethods;
+using System.Globalization;
 
 namespace Presentacion
 {
@@ -24,7 +25,6 @@ namespace Presentacion
             
             txtId.Enabled = false;
             confirmaEliminacion = false;
-            //imgArticulo.ImageUrl = "Images/Fallback.png";
 
             try
             {
@@ -58,7 +58,7 @@ namespace Presentacion
                     txtCodigo.Text = seleccionado.Codigo;
                     txtNombre.Text = seleccionado.Nombre;
                     txtDescripcion.Text = seleccionado.Descripcion;
-                    txtPrecio.Text = seleccionado.Precio.ToString("C0");
+                    txtPrecio.Text = seleccionado.Precio.ToString("0", System.Globalization.CultureInfo.InvariantCulture);
                     ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
                     ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
                     if (!string.IsNullOrEmpty(seleccionado.ImagenUrl))
@@ -104,7 +104,7 @@ namespace Presentacion
                 nuevoArticulo.Marca = new Marca();
                 nuevoArticulo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
                 nuevoArticulo.ImagenUrl = txtImagenUrl.Text;
-                nuevoArticulo.Precio = decimal.Parse(txtPrecio.Text);
+                nuevoArticulo.Precio = decimal.Parse(txtPrecio.Text, CultureInfo.InvariantCulture);
 
                 if (Request.QueryString["id"] != null)
                 {

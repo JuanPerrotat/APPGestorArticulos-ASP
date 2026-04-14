@@ -1,38 +1,42 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+﻿function validarInput(input) {
+    const container = input.closest(".form-group");
+    const errorDiv = container.querySelector(".invalid-feedback");
 
-    const inputs = document.querySelectorAll(".form-control");
+    if (!input.checkValidity()) {
+        input.classList.add("is-invalid");
+        input.classList.remove("is-valid");
 
-    inputs.forEach(input => {
+        if (input.value.trim() === "") {
+            errorDiv.textContent = "El campo es obligatorio";
+        } else {
+            errorDiv.textContent = "Formato inválido";
+        }
 
-        input.addEventListener("blur", function () {
+        return false;
+    } else {
+        input.classList.remove("is-invalid");
+        input.classList.add("is-valid");
+        errorDiv.textContent = "";
+        return true;
+    }
+}
 
-            let isValid = true;
+function validarFormulario() {
+    let valido = true;
 
-            const validators = input.parentElement.querySelectorAll(".validator");
-
-            validators.forEach(v => {
-                if (v.innerText.trim() !== "") {
-                    v.classList.add("active");
-                    isValid = false;
-                } else {
-                    v.classList.remove("active");
-                }
-            });
-
-            if (input.value.trim() === "") {
-                isValid = false;
-            }
-
-            input.classList.remove("is-valid", "is-invalid");
-
-            if (isValid) {
-                input.classList.add("is-valid");
-            } else {
-                input.classList.add("is-invalid");
-            }
-
-        });
-
+    document.querySelectorAll(".form-control").forEach(input => {
+        if (!validarInput(input)) {
+            valido = false;
+        }
     });
 
+    return valido;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".form-control").forEach(input => {
+        input.addEventListener("blur", function () {
+            validarInput(this);
+        });
+    });
 });

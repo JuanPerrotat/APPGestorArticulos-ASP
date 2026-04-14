@@ -34,9 +34,9 @@ namespace Presentacion
             try
             {
 
-                Page.Validate();
-                if (!Page.IsValid)
-                    return;
+                //Page.Validate();
+                //if (!Page.IsValid)
+                //    return;
 
                 user.Email = txtEmail.Text;
                 user.Pass = txtPass.Text;

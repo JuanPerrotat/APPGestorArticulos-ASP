@@ -12,7 +12,6 @@
 
                 <div class="card shadow-lg contacto-card p-4 p-md-5">
 
-                    <!-- Header -->
                     <div class="text-center mb-4">
                         <h2 class="fw-bold">Contacto</h2>
                         <p class="text-muted mb-0">
@@ -38,25 +37,24 @@
                             </asp:Panel>
 
                             <asp:Panel ID="pnlFormulario" runat="server">
-                                <!-- Form -->
+
                                 <div class="row">
 
-                                    <!-- Nombre -->
                                     <div class="col-12 col-md-6 mb-3">
                                         <label class="form-label">Nombre</label>
-                                        <div class="input-group">
+                                        <div class="input-group form-group">
                                             <span class="input-group-text">
                                                 <i class="bi bi-person"></i>
                                             </span>
                                             <asp:TextBox CssClass="form-control form-control-lg" ID="txtNombre" 
-                                                runat="server" placeholder="Tú nombre" />
+                                                runat="server" required="required" MaxLength="100" placeholder="Tú nombre" />
+                                            <div class="invalid-feedback"></div>
                                         </div>
                                     </div>
 
-                                    <!-- Email -->
                                     <div class="col-12 col-md-6 mb-3">
                                         <label class="form-label">Correo electrónico</label>
-                                        <div class="input-group">
+                                        <div class="input-group form-group">
                                             <span class="input-group-text">
                                                 <i class="bi bi-envelope"></i>
                                             </span>
@@ -64,45 +62,50 @@
                                                 ID="txtMail"
                                                 runat="server"
                                                 TextMode="Email"
+                                                required="required"
                                                 CssClass="form-control form-control-lg"
                                                 placeholder="ejemplo@mail.com" />
+                                            <div class="invalid-feedback"></div>
                                         </div>
                                     </div>
 
-                                    <!-- Asunto -->
                                     <div class="col-12 col-md-6 mb-3">
                                         <label class="form-label">Asunto</label>
-                                        <div class="input-group">
+                                        <div class="input-group form-group">
                                             <span class="input-group-text">
                                                 <i class="bi bi-chat-left-text"></i>
                                             </span>
                                             <asp:TextBox
                                                 ID="txtAsunto"
                                                 runat="server"
+                                                required="required"
+                                                MaxLength="150"
                                                 CssClass="form-control form-control-lg"
                                                 placeholder="Motivo del mensaje" />
+                                            <div class="invalid-feedback"></div>
                                         </div>
                                     </div>
 
-                                    <!-- Mensaje -->
-                                    <div class="col-12 mb-4">
+                                    <div class="col-12 mb-4 form-group">
                                         <label class="form-label">Mensaje</label>
                                         <asp:TextBox
                                             ID="txtMensaje"
                                             runat="server"
                                             TextMode="MultiLine"
+                                            required="required"
                                             Rows="5"
                                             CssClass="form-control form-control-lg"
                                             placeholder="Escribí tu mensaje acá..." />
+                                        <div class="invalid-feedback"></div>
                                     </div>
 
-                                    <!-- Botón -->
                                     <div class="col-12 d-grid">
                                         <asp:Button
                                             ID="btnEnviar"
                                             runat="server"
                                             Text="Enviar mensaje"
                                             CssClass="btn btn-primary btn-lg btn-enviar"
+                                            OnClientClick="return validarFormulario()"
                                             OnClick="btnEnviar_Click" />
                                     </div>
 

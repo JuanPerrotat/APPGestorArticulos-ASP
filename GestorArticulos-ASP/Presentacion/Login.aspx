@@ -14,31 +14,24 @@
                         <p class="text-muted mb-0">Ingresá a tu cuenta</p>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3 form-group">
                         <label class="form-label">Mail</label>
-                        <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control form-control-lg" />
-
-                        <asp:RequiredFieldValidator
-                            ID="rfvEmail"
-                            ErrorMessage="Completar campo" CssClass="validator"
-                            ControlToValidate="txtEmail" runat="server" />
-
-                        <asp:RegularExpressionValidator
-                            ID="revEmail"
-                            ErrorMessage="Formato inválido"
-                            ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
-                            ControlToValidate="txtEmail" CssClass="validator" runat="server" />
+                        <asp:TextBox runat="server" TextMode="Email" required="required" MaxLength="100" ID="txtEmail" CssClass="form-control form-control-lg" />
+                        <div class="invalid-feedback"></div>
                     </div>
 
-                    <div class="mb-4">
+                    <div class="mb-3 form-group">
                         <label class="form-label">Password</label>
+
                         <div class="input-group">
-                            <asp:TextBox runat="server" ID="txtPass" TextMode="Password" CssClass="form-control form-control-lg" />
+                            <asp:TextBox runat="server" ID="txtPass" TextMode="Password" required="required" MaxLength="20" CssClass="form-control form-control-lg" />
                             <button type="button" id="btnEye" class="btn btn-outline-secondary" onclick="togglePassword()">
                                 <i id="iconEye" class="bi bi-eye"></i>
                             </button>
+                            <div class="invalid-feedback"></div>
                         </div>
-                        <asp:RequiredFieldValidator ErrorMessage="Completar campo" CssClass="validator" ControlToValidate="txtPass" runat="server" />
+
+                        <div class="invalid-feedback"></div>
                     </div>
                     <asp:Label
                         ID="lblError"
@@ -52,6 +45,7 @@
                             Text="Ingresar"
                             ID="btnIngresar"
                             OnClick="btnIngresar_Click"
+                            OnClientClick="return validarFormulario()"
                             CssClass="btn btn-primary btn-lg rounded-3"
                             runat="server" />
 
@@ -60,6 +54,7 @@
                             ID="btnCancelar"
                             OnClick="btnCancelar_Click"
                             CausesValidation="false"
+                            UseSubmitBehavior="false"
                             CssClass="btn btn-outline-secondary rounded-3"
                             runat="server" />
                     </div>
@@ -74,6 +69,7 @@
                             CssClass="btn btn-outline-primary rounded-3 px-4"
                             OnClick="btnCrearUsuario_Click"
                             CausesValidation="false"
+                            UseSubmitBehavior="false"
                             runat="server" />
                     </div>
 
