@@ -13,7 +13,7 @@
                 Session.Remove("mensaje");
                 Session.Remove("tipoMensaje");
             } %>
-        <!-- HEADER -->
+
         <div class="mb-4 text-center text-md-start">
             <h1 class="fw-bold">Lista de Artículos</h1>
             <p class="text-muted mb-0">
@@ -22,7 +22,7 @@
             </p>
         </div>
 
-        <!-- FILTRO SIMPLE -->
+
 
         <div class="row g-3 align-items-center">
             <div class="col-12 col-md-4">
@@ -44,8 +44,9 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-3 d-flex align-items-end">
-                <asp:Button ID="btnReiniciarFiltro" CssClass="btn btn-outline-secondary w-100" AutoPostBack="true"
+            <div class="col-6 col-md-3">
+                <label class="form-label d-none d-md-block">&nbsp;</label>
+                <asp:Button ID="btnReiniciarFiltro" CssClass="btn btn-outline-dark w-100" AutoPostBack="true"
                     Text="Reiniciar filtro" OnClick="btnReiniciarFiltro_Click" runat="server" />
             </div>
         </div>
