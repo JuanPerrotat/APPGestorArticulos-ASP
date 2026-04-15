@@ -33,14 +33,6 @@ namespace Presentacion
                 imgAvatar.ImageUrl = !string.IsNullOrEmpty(usuario.UrlImagenPerfil)
                     ? "~/Images/" + usuario.UrlImagenPerfil
                     : "~/Images/avatar.png";
-
-
-
-
-                //if (!string.IsNullOrEmpty(usuario.UrlImagenPerfil))
-                //    imgAvatar.ImageUrl = "~/Images/" + ((User)Session["usuarioLogueado"]).UrlImagenPerfil;
-                //else
-                //    imgAvatar.ImageUrl = "Images/avatar.png";
             }
         }
 
@@ -58,6 +50,14 @@ namespace Presentacion
         {
             Session.Clear();
             Response.Redirect("Default.aspx", false);
+        }
+        private void Page_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+
+            Session.Add("error", "Ocurrió un problema inesperado, volvé a intentar. " +
+                "En el caso de no solucionarse, comunicate con el equipo de Stocker en la pestaña de 'Contacto'.");
+            Server.Transfer("Error.aspx");
         }
     }
 }

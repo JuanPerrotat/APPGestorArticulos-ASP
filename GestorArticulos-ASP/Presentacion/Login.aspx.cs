@@ -34,10 +34,6 @@ namespace Presentacion
             try
             {
 
-                //Page.Validate();
-                //if (!Page.IsValid)
-                //    return;
-
                 user.Email = txtEmail.Text;
                 user.Pass = txtPass.Text;
 
@@ -59,6 +55,14 @@ namespace Presentacion
                     "Podés ponerte en contacto utilizando la pestaña 'Contacto'.");
                 Response.Redirect("Error.aspx", false);
             }
+        }
+        private void Page_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+
+            Session.Add("error", "Ocurrió un problema inesperado, volvé a intentar. " +
+                "En el caso de no solucionarse, comunicate con el equipo de Stocker en la pestaña de 'Contacto'.");
+            Server.Transfer("Error.aspx");
         }
     }
 }

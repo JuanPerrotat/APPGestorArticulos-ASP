@@ -25,30 +25,43 @@
                                 <asp:Label Text="Email" CssClass="form-label" runat="server" />
                                 <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email" />
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 form-group">
                                 <asp:Label Text="Nombre" CssClass="form-label" runat="server" />
-                                <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" />
+                                <asp:TextBox ID="txtNombre" MaxLength="50" required="required" runat="server" CssClass="form-control" />
+                                <div class="invalid-feedback"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 form-group">
                                 <asp:Label Text="Apellido" CssClass="form-label" runat="server" />
-                                <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" required="false" />
+                                <asp:TextBox ID="txtApellido" required="required" MaxLength="50" runat="server" CssClass="form-control" />
+                                <div class="invalid-feedback"></div>
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 text-center">
+                        <div class="col-12 col-md-6 text-center form-group">
 
                             <asp:Image
                                 onerror="this.onerror=null; this.src='/Images/Fallback.png';"
                                 ID="imgNuevoPerfil" CssClass="img-thumbnail mb-3" runat="server" />
 
                             <asp:FileUpload ID="txtImagen" onchange="previewImage(this)" runat="server" class="form-control" />
-
+                            
                         </div>
                     </div>
                     <div class="d-flex flex-column flex-md-row gap-2 mt-4 justify-content-end">
 
-                        <asp:Button Text="Guardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click" ID="btnGuardar" runat="server" />
-                        <asp:Button Text="Regresar" CssClass="btn btn-outline-secondary" OnClick="btnRegresar_Click" ID="btnRegresar" runat="server" />
+                        <asp:Button Text="Guardar"
+                            CssClass="btn btn-primary"
+                            OnClientClick="return validarFormulario()"
+                            OnClick="btnGuardar_Click"
+                            ID="btnGuardar"
+                            runat="server" />
+                        <asp:Button Text="Regresar"
+                            CssClass="btn btn-outline-secondary"
+                            OnClick="btnRegresar_Click"
+                            UseSubmitBehavior="false"
+                            CausesValidation="false"
+                            ID="btnRegresar"
+                            runat="server" />
 
                     </div>
                 </div>

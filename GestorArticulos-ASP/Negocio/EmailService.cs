@@ -39,7 +39,7 @@ namespace Negocio
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("No se pudo enviar el mail.", ex);
             }
         }
         public string CargarTemplate(string ruta)

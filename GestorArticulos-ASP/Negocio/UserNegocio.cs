@@ -37,7 +37,7 @@ namespace Negocio
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("Error al loguear.", ex);
             }
             finally
             {
@@ -56,8 +56,8 @@ namespace Negocio
                 return datos.ejecutarAccionScalar();
             }
             catch (Exception ex)
-            {   
-                throw ex;
+            {
+                throw new Exception("No se pudo dar de alta al usuario.", ex);
             }
             finally
             {
@@ -83,7 +83,7 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("No se pudo actualizar los datos del usuario.", ex);
             }
             finally
             {

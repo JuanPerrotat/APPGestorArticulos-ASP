@@ -32,7 +32,7 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("No se pudo acceder a la base de datos.", ex);
             }
             finally
             {

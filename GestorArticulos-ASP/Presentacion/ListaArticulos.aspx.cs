@@ -19,16 +19,26 @@ namespace Presentacion
                 Session.Add("error", "Se requiere permisos de administrador para acceder a ésta pantalla.");
                 Response.Redirect("Error.aspx", false);
             }
-            
+
             if (!IsPostBack)
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                List<Articulo> lista = negocio.listar();
-                Session["listaArticulos"] = lista;
-                Session["listaFiltrada"] = lista;
-                dgvArticulos.DataSource = Session["listaFiltrada"];
-                dgvArticulos.DataBind();
-                cargarCriterios();
+                try
+                {
+                    List<Articulo> lista = negocio.listar();
+                    Session["listaArticulos"] = lista;
+                    Session["listaFiltrada"] = lista;
+                    dgvArticulos.DataSource = Session["listaFiltrada"];
+                    dgvArticulos.DataBind();
+                    cargarCriterios();
+
+                }
+                catch (Exception ex)
+                {
+                    Session.Add("error", ex.Message);
+                    Response.Redirect("Error.aspx", false);
+                }
+
             }
 
         }
@@ -156,6 +166,14 @@ namespace Presentacion
 
                 throw ex;
             }
+        }
+        private void Page_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+
+            Session.Add("error", "Ocurrió un problema inesperado, volvé a intentar. " +
+                "En el caso de no solucionarse, comunicate con el equipo de Stocker en la pestaña de 'Contacto'.");
+            Server.Transfer("Error.aspx");
         }
     }
 }

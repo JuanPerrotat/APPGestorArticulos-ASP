@@ -16,8 +16,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                //string consulta = "Select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.ImagenUrl, A.IdMarca, A.IdCategoria, C.Descripcion as Categoria, M.Descripcion as Marca, A.Precio from ARTICULOS A, CATEGORIAS C, MARCAS M where A.IdCategoria = C.Id and A.IdMarca = M.Id";
-                //datos.setearConsulta(consulta);
+
                 datos.setearProcedimiento("ListarStored");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
@@ -43,7 +42,7 @@ namespace Negocio
             catch (Exception ex)
             {
 
-                throw new Exception("No se pudo acceder a la base de datos", ex);
+                throw new Exception("No se pudo acceder a la base de datos.", ex);
             }
             finally
             {
@@ -89,7 +88,7 @@ namespace Negocio
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("No se pudo cargar la lista de artículos.", ex);
             }
             finally
             {
@@ -115,7 +114,7 @@ namespace Negocio
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("No se pudo agregar el artículo.", ex);
             }
             finally
             {
@@ -142,7 +141,7 @@ namespace Negocio
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("No se pudo modificar el artículo.", ex);
             }
             finally
             {
@@ -162,7 +161,7 @@ namespace Negocio
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("No se pudo eliminar el artículo.", ex);
             }
         }
         public List<Articulo> filtrarAvanzado(string campo, string criterio, string filtro)
@@ -222,7 +221,7 @@ namespace Negocio
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("No se pudo acceder a la base de datos.", ex);
             }
             finally
             {
