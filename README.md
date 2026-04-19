@@ -61,52 +61,9 @@ Se utilizó **Bootstrap** para lograr una interfaz responsive, adaptable a disti
 ```
 Stocker/
 │
-├── Dominio/
-├── Negocio/
-├── Presentacion/
-├── Datos/
-├── Scripts SQL/
+├── Dominio
+├── Negocio
+├── Presentacion
 └── README.md
-```
 
----
 
-## 🛠️ Cómo ejecutar el proyecto
-
-1. Clonar el repositorio:
-
-   ```bash
-   git clone https://github.com/tu-usuario/stocker.git
-   ```
-
-2. Abrir la solución en Visual Studio
-
-3. Configurar la cadena de conexión a la base de datos en `Web.config`
-
-4. Ejecutar los scripts SQL para crear la base de datos
-
-5. Ejecutar el proyecto
-
----
-
-## 📌 Estado del proyecto
-
-✔️ Funcional y completo
-🔧 Posibles mejoras futuras:
-
-* Implementación de API REST
-* Migración a .NET moderno (MVC o .NET Core)
-* Mejoras en seguridad (hash de contraseñas, autenticación más robusta)
-* Paginación y filtros avanzados
-
----
-
-## 👨‍💻 Autor
-
-Desarrollado por Juan como parte de su proceso de formación en desarrollo web y backend con .NET.
-
----
-
-## 📄 Licencia
-
-Este proyecto es de uso educativo y puede ser reutilizado con fines de aprendizaje.
